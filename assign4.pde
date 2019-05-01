@@ -22,6 +22,7 @@ final int START_BUTTON_Y = 360;
 
 float[] cabbageX, cabbageY, soldierX, soldierY;
 float soldierSpeed = 2f;
+int cabbageW, cabbageH;
 
 float playerX, playerY;
 int playerCol, playerRow;
@@ -101,6 +102,10 @@ void setup() {
 	// Initialize soidiers and their position
 
 	// Initialize cabbages and their position
+  
+     
+     
+  
 
 }
 
@@ -108,7 +113,7 @@ void draw() {
 
 	switch (gameState) {
 
-		case GAME_START: // Start Screen
+		case GAME_START: // Start Screen 
 		image(title, 0, 0);
 		if(START_BUTTON_X + START_BUTTON_WIDTH > mouseX
 	    && START_BUTTON_X < mouseX
@@ -142,7 +147,7 @@ void draw() {
 	    // CAREFUL!
 	    // Because of how this translate value is calculated, the Y value of the ground level is actually 0
 		pushMatrix();
-		translate(0, max(SOIL_SIZE * -18, SOIL_SIZE * 1 - playerY));
+    translate(0, max(SOIL_SIZE * -18, SOIL_SIZE * 1 - playerY));
 
 		// Ground
 
@@ -310,6 +315,33 @@ void draw() {
 		popMatrix();
 
 		// Health UI
+
+    if(playerHealth == 0){
+         gameState = GAME_OVER;
+       }
+       if(playerHealth == 1){
+         image(life,10,10);
+       }
+       if(playerHealth == 2){
+         for(int a=0; a<2; a++){
+         image(life,10+a*70,10);
+         }
+       }
+         if(playerHealth == 3){
+         for(int a=0; a<3; a++){
+         image(life,10+a*70,10);
+         }
+         }
+         if(playerHealth == 4){
+         for(int a=0; a<4; a++){
+         image(life,10+a*70,10);
+         }
+         }
+         if(playerHealth == 5){
+         for(int a=0; a<5; a++){
+         image(life,10+a*70,10);
+         }
+         }
 
 		break;
 
